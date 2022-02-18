@@ -33,6 +33,9 @@ Custom OpenCore EFI for Dell Inspiron 5559 (base model) on macOS Hackintosh syst
 4. Reboot and enjoy, no need to re-Snapshot
 
 ## Basic fixes:
+* Bad earphone quality: Go to **System Preferences -> Sound -> Output** and pull the Balance slider to either side, they both work
+![Screen Shot 2022-02-18 at 16 33 38](https://user-images.githubusercontent.com/75196272/154656844-c3162ed0-a6dd-4246-b29b-d80845b782b2.png)
+
 * Reversed scrolling on trackpad & mouse: this is actually not a bug nor huge issue, it's just a default setting on macOS, you can revert it back by going to **System Preferences -> Trackpad -> Scroll & Zoom -> Scroll direction: Natural** and **System Preferences -> Mouse -> Scroll direction: Natural**
 ![Screen Shot 2022-02-18 at 15 45 06](https://user-images.githubusercontent.com/75196272/154649088-7de7dbbc-3589-4d20-bceb-5c1977a6098f.png)
 ![Screen Shot 2022-02-18 at 15 45 12](https://user-images.githubusercontent.com/75196272/154649164-404cf4af-f34b-4727-8392-771332847be2.png)
