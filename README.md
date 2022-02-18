@@ -23,11 +23,11 @@ Custom OpenCore EFI for Dell Inspiron 5559 (base model) on macOS Hackintosh syst
 
 ## Basic guides:
 - Install USB:
-1. Download the branch as zip at the green button
+1. Download the zip at releases tab
 2. Copy EFI folder to your installer USB's EFI partition
 3. Boot and install
 - Hard disk:
-1. Download the branch as zip at the green button
+1. Download the zip at releases tab
 2. Use ESP Mounter Pro to mount your disk's EFI parititon
 3. Copy EFI folder to your hard disk's EFI partition
 4. Reboot and enjoy, no need to re-Snapshot
