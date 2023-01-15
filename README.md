@@ -1,6 +1,6 @@
 ## OpenCore 0.8.8 for Inspiron 5559
 Custom OpenCore EFI for Dell Inspiron 5559 on macOS
-### Note: Repository is still in development, to get the EFI, please head to the appropriate branch and clone it.
+### Note: You can either get the EFI from cloning appropriate branches or Release tab.
 
 ## Navigate
 - [BIOS setup](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#bios-setup)
