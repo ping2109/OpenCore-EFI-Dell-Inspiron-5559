@@ -1,25 +1,25 @@
-# Hackintosh-OpenCore-EFI-Dell-Inspiron-5559
-Custom OpenCore EFI for Dell Inspiron 5559 (base model) on macOS Hackintosh systems
+## OpenCore 0.8.8 for Inspiron 5559
+Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 
-![image](https://user-images.githubusercontent.com/75196272/162144439-d57de26f-a2c8-4433-9a57-b9bd4e7c4a90.png)
+## Navigate
+- [BIOS setup](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#bios-setup)
+- [Basic installation](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#basic-installation)
+- [Vanilla OpenCore - Monterey and older](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#vanilla-opencore---monterey-and-older)
+- [Spoofed OpenCore - Ventura and newer](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#spoofed-opencore---ventura-and-newer)
+- [Basic fixes](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#basic-fixes)
 
-# System's Configuration:
-> Base model Dell Inspiron 5559
+## BIOS setup
+<details>
 
-| Specifications | Details                                                         |
-| -------------- | --------------------------------------------------------------- |
-| Laptop Model   | Dell Inspiron 5559                                              |
-| Processor      | Intel Core i5-6200U @ 2.40GHz dual-core                         |
-| RAM            | 4GB (DDR3L 1600MHz)                                 |
-| Storage        | Seagate 2.5 inch 500GB Sata III HDD                      |
-| Graphics       | Intel HD Graphics 520                                           |
-| Display        | 15.6 inches HD+ LCD (1366x768)                       |
-| Network Card   | Intel Dual Band Wireless-AC 3160 |
+- Hyper-Threading
+- UEFI boot
+- DVMT Pre-Allocated(iGPU Memory): 64MB
+- SATA Mode: AHCI
 
-## Tested on:
-'macOS Big Sur 11.5.2'
+</details>
 
-# Basic guides:
+
+## Basic installation
 - Install USB:
 1. Download the zip at releases tab
 2. Copy EFI folder to your installer USB's EFI partition
@@ -28,24 +28,49 @@ Custom OpenCore EFI for Dell Inspiron 5559 (base model) on macOS Hackintosh syst
 1. Download the zip at releases tab
 2. Use ESP Mounter Pro to mount your disk's EFI parititon
 3. Copy EFI folder to your hard disk's EFI partition
-4. Reboot and enjoy, no need to re-Snapshot
+4. Reboot
 
-# Basic fixes:
-## Bad earphone quality:
-- Go to `System Preferences -> Sound -> Output` and pull the Balance slider to either side, they both work
+# Vanilla OpenCore - Monterey and older
+| Specs | Info |
+|----------|----------|
+| **RAM** | 2x DDR3L 1600MHz 4GB |
+| **CPU** | Intel Core i5-6200U (2 cores 2 threads) 2.4 GHz |
+| **Wi-Fi Card** | Apple AirPort BCM943602CS2 + NGFF Adapter |
+| **GPU** | Intel(R) HD Graphics 520 |
+| **SMBIOS** | MacBookPro13,1 |
 
-![Screen Shot 2022-02-18 at 16 33 38](https://user-images.githubusercontent.com/75196272/154656844-c3162ed0-a6dd-4246-b29b-d80845b782b2.png)
+| Feature | Status | Notes |
+| ------------- | ------------- | ------------- |
+| **Intel iGPU** | ✅ Working |
+| **Trackpad I2C** |  ✅ Working | Full gesture support| 
+| **iMessages and App Store** | ✅ Working | Follow the OpenCore Guide (#ℹ️-changing-serial-number,-board-serial-number-and-smuuid) |
+| **Speakers and Headphones** | ✅ Working | To permanently fix headphones follow this [link](https://github.com/hackintosh-stuff/ComboJack) |
+| **Built-in Microphone** | ✅ Working |
+| **Webcam** | ✅ Working  |
+| **Wi-Fi/BT** | ✅ Working | Since this is an Apple card, it works OOB. You may need [itlwm](https://github.com/OpenIntelWireless/itlwm) for stock AC-3160 card. |
+| **SDCard slot** | ✅ Working |
+| **Ethernet** | ✅ Working |
 
-## Reversed scrolling on trackpad & mouse:
-- This is actually not a bug nor huge issue, it's just a default setting on macOS, you can revert it back by going to `System Preferences -> Trackpad -> Scroll & Zoom -> Scroll direction: Natural` and `System Preferences -> Mouse -> Scroll direction: Natural`
 
-![Screen Shot 2022-02-18 at 15 45 06](https://user-images.githubusercontent.com/75196272/154649088-7de7dbbc-3589-4d20-bceb-5c1977a6098f.png)
-![Screen Shot 2022-02-18 at 15 45 12](https://user-images.githubusercontent.com/75196272/154649164-404cf4af-f34b-4727-8392-771332847be2.png)
+# Spoofed OpenCore - Ventura and newer
+- TBD
 
-## ~~Wifi~~
-- Fixed on [v2](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559/releases/tag/v2)
+## Basic fixes
+### 🔈 Audio
+Without any modifications, the headphone jack is buggy. External microphones aren't detected and the audio output may randomly stop working or start making weird noises. Sometimes replugging the headphones works, but that's pretty annoying and unreliable. To permanently fix this issue you will have to install [this fork of ComboJack](https://github.com/lvs1974/ComboJack).
 
+### 🔋 Power management
+Hibernation is not supported on a Hackintosh and everything related to it should be completely disabled. Disabling additional features prevents random wakeups while the lid is closed. After every update, these settings should be reapplied manually.
 
+```
+sudo pmset -a hibernatemode 0
+sudo rm -f /var/vm/sleepimage
+sudo mkdir /var/vm/sleepimage
+sudo pmset -a standby 0
+sudo pmset -a autopoweroff 0
+sudo pmset -a powernap 0
+sudo pmset -a proximitywake 0
+sudo pmset -b tcpkeepalive 0 (optional)
+```
 
-# Find me at [Telegram](https://t.me/ping2109official) if you have any inquire, feel free to create issues
-## Credits goes to [tamht298](https://github.com/tamht298) and [OpenCore](https://dortania.github.io/OpenCore-Install-Guide)
+## Credits
