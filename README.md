@@ -1,5 +1,6 @@
 ## OpenCore 0.8.8 for Inspiron 5559
 Custom OpenCore EFI for Dell Inspiron 5559 on macOS
+### Note: Repository is still in development, to get the EFI, please head to the appropriate branch and clone it.
 
 ## Navigate
 - [BIOS setup](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#bios-setup)
@@ -20,6 +21,8 @@ Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 
 
 ## Basic installation
+<details>
+
 - Install USB:
 1. Download the zip at releases tab
 2. Copy EFI folder to your installer USB's EFI partition
@@ -30,7 +33,15 @@ Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 3. Copy EFI folder to your hard disk's EFI partition
 4. Reboot
 
+</details>
+
 # Vanilla OpenCore - Monterey and older
+<details>
+
+![Ảnh chụp Màn hình 2023-01-15 lúc 13 01 32](https://user-images.githubusercontent.com/75196272/212527020-44b96f69-1f49-436a-922f-f0d8ba4046e8.png)
+
+A/N:**ignore that it says MBP 2017, im just testing my spoofing things, it will be the appropriate 2016 model for you guys on this branch**
+
 | Specs | Info |
 |----------|----------|
 | **RAM** | 2x DDR3L 1600MHz 4GB |
@@ -51,11 +62,14 @@ Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 | **SDCard slot** | ✅ Working |
 | **Ethernet** | ✅ Working |
 
+</details>
 
 # Spoofed OpenCore - Ventura and newer
 - TBD
 
 ## Basic fixes
+<details>
+
 ### 🔈 Audio
 Without any modifications, the headphone jack is buggy. External microphones aren't detected and the audio output may randomly stop working or start making weird noises. Sometimes replugging the headphones works, but that's pretty annoying and unreliable. To permanently fix this issue you will have to install [this fork of ComboJack](https://github.com/lvs1974/ComboJack).
 
@@ -72,6 +86,7 @@ sudo pmset -a powernap 0
 sudo pmset -a proximitywake 0
 sudo pmset -b tcpkeepalive 0 (optional)
 ```
+</details>
 
 ## Credits
 - [Dortania's OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
