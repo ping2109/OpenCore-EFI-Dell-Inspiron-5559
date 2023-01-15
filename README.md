@@ -3,12 +3,12 @@ Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 ### Note: You can either get the EFI from cloning appropriate branches or Release tab.
 
 ## Navigate
-- [BIOS setup](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#bios-setup)
-- [Basic installation](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#basic-installation)
-- [Vanilla OpenCore - Monterey and older](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#vanilla-opencore---monterey-and-older)
-- [Spoofed OpenCore - Ventura and newer](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#spoofed-opencore---ventura-and-newer)
-- [Basic fixes](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#basic-fixes)
-- [AirPort wireless card](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#airport-wireless-card)
+- [BIOS setup](#bios-setup)
+- [Basic installation](#basic-installation)
+- [Vanilla OpenCore - Monterey and older](#vanilla-opencore---monterey-and-older)
+- [Spoofed OpenCore - Ventura and newer](#spoofed-opencore---ventura-and-newer)
+- [Basic fixes](#basic-fixes)
+- [AirPort wireless card](#airport-wireless-card)
 
 ## BIOS setup
 <details>
