@@ -8,6 +8,7 @@ Custom OpenCore EFI for Dell Inspiron 5559 on macOS
 - [Vanilla OpenCore - Monterey and older](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#vanilla-opencore---monterey-and-older)
 - [Spoofed OpenCore - Ventura and newer](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#spoofed-opencore---ventura-and-newer)
 - [Basic fixes](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#basic-fixes)
+- [AirPort wireless card](https://github.com/ping2109/Hackintosh-OpenCore-EFI-Dell-Inspiron-5559#airport-wireless-card)
 
 ## BIOS setup
 <details>
@@ -65,7 +66,35 @@ A/N:**ignore that it says MBP 2017, im just testing my spoofing things, it will 
 </details>
 
 # Spoofed OpenCore - Ventura and newer
-- TBD
+<details>
+
+![Ảnh màn hình 2023-01-15 lúc 15 40 11](https://user-images.githubusercontent.com/75196272/212531501-efa0a2e2-b46a-4287-936a-e078529e112e.png)
+
+
+| Specs | Info |
+|----------|----------|
+| **RAM** | 2x DDR3L 1600MHz 4GB |
+| **CPU** | Intel Core i5-6200U (2 cores 2 threads) 2.4 GHz |
+| **Wi-Fi Card** | Apple AirPort BCM943602CS2 + NGFF Adapter |
+| **GPU** | Intel(R) HD Graphics 520 |
+| **SMBIOS** | MacBookPro14,1 |
+
+| Feature | Status | Notes |
+| ------------- | ------------- | ------------- |
+| **Intel iGPU** | ✅ Working |
+| **Trackpad I2C** |  ✅ Working | Full gesture support| 
+| **iMessages and App Store** | ✅ Working | Follow the OpenCore Guide (#ℹ️-changing-serial-number,-board-serial-number-and-smuuid) |
+| **Speakers and Headphones** | ✅ Working | To permanently fix headphones follow this [link](https://github.com/hackintosh-stuff/ComboJack) |
+| **Built-in Microphone** | ✅ Working |
+| **Webcam** | ✅ Working  |
+| **Wi-Fi/BT** | ✅ Working | Since this is an Apple card, it works OOB. You may need [itlwm](https://github.com/OpenIntelWireless/itlwm) for stock AC-3160 card. |
+| **Continuity Camera** | ✅ Working | Require you to have an OEM AirPort card, suggested to have the BCM943602CS2, check above for more info |
+| **SDCard slot** | ✅ Working |
+| **Ethernet** | ✅ Working |
+
+As MacBookPro13,1 (MBP2016) SMBIOS has been dropped on Ventura and later, we have to use the SMBIOS of MacBookPro14,1 (MBP 2017) machine. Which also requires the iGPU to be spoofed as Kabylake, in this case HD 520 to HD 620.
+
+</details>
 
 ## Basic fixes
 <details>
@@ -86,6 +115,19 @@ sudo pmset -a powernap 0
 sudo pmset -a proximitywake 0
 sudo pmset -b tcpkeepalive 0 (optional)
 ```
+</details>
+
+## AirPort wireless card
+<details>
+To get full Continuity Suite, I highly suggest spending an extra $15 for a Wireless card mod, which can be done with two components
+- A BCM943602CS2 AirPort card (found in 2011 to 2017 MBAs)
+- An NGFF Key A+E adapter
+
+To get the card to fit, you'll have to cut off the H3 screw mount of the adapter and part of the laptop's bottom casing (marked red in the photo).
+The antenna cables also have to be routed as marked green in the photo below.
+
+![IMG_0230](https://user-images.githubusercontent.com/75196272/212531783-c41a0098-9808-4de5-9cf8-f0540eed55b3.jpg)
+
 </details>
 
 ## Credits
