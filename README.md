@@ -74,3 +74,5 @@ sudo pmset -b tcpkeepalive 0 (optional)
 ```
 
 ## Credits
+- [Dortania's OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- [Tuan Anh](https://github.com/log1cs/) for the .README
